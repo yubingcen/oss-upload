@@ -1,0 +1,32 @@
+{
+  "name": "oss-upload",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "parcel test.html -p 10088",
+    "build": "parcel build index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yubingcen/oss-upload.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yubingcen/oss-upload/issues"
+  },
+  "homepage": "https://github.com/yubingcen/oss-upload#readme",
+  "dependencies": {
+    "crypto-js": "^4.1.1",
+    "js-base64": "^3.7.5"
+  },
+  "devDependencies": {
+    "eslint": "^8.34.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "parcel-bundler": "^1.12.5",
+    "prettier": "^2.8.4"
+  }
+}
