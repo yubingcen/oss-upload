@@ -1,3 +1,12 @@
 module.exports = {
-  extends: ['plugin:prettier/recommended'], // 覆盖eslint格式配置,写在最后
-}
+  root: true,
+  env: {
+    node: true,
+    es2020: true,
+  },
+  extends: ["plugin:prettier/recommended"],
+  parserOptions: {
+    sourceType: "module",
+    requireConfigFile: false,
+  },
+};
