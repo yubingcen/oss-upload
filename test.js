@@ -29,8 +29,8 @@ function downloadImg() {
 }
 
 async function upload() {
-  const imgBlob = await downloadImg(12);
-  const fileName = `${randomString()}.jpeg`;
+  const imgBlob = await downloadImg();
+  const fileName = `${randomString(12)}.jpeg`;
 
   const file = new File([imgBlob], fileName, { type: imgBlob.type });
   console.log(file);
