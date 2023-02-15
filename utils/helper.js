@@ -31,6 +31,7 @@ export function getSignature(config, policy) {
 
 export function getHost(config) {
   const { bucket, region } = config;
+  const protocol = location.protocol;
 
-  return `http://${bucket}.${region}.aliyuncs.com`;
+  return `${protocol}//${bucket}.${region}.aliyuncs.com`;
 }

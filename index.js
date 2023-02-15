@@ -8,6 +8,8 @@ let ossConfig = {
   useBucketPath: "",
 };
 
+const successCode = 200;
+
 class OssUpload {
   setConfig(config) {
     ossConfig = Object.assign(ossConfig, config);
@@ -39,7 +41,6 @@ class OssUpload {
       success_action_status: "200", //让服务端返回200,不然，默认会返回204
       signature: signature,
     };
-    console.log(data);
 
     const formData = new FormData();
 
@@ -50,18 +51,17 @@ class OssUpload {
     formData.append("file", file);
 
     return fetch(host, {
-      mode: "no-cors",
       method: "POST",
       body: formData
     })
-      .then((res) => res.json())
-      .then((res) => {
-        console.log(res);
+      .then(res => {
+        if (res.status === successCode) {
+          const url = getHost(ossConfig) + `/${useBucketPath}/${file.name}`
+          return url;
+        } else {
+          throw new Error("上传失败");
+        }
       })
-      .catch((e) => {
-        console.error(e);
-        return e;
-      });
   }
 }
 

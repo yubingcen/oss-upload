@@ -36,7 +36,7 @@ async function upload() {
   console.log(file);
 
   const res = await OssUpload.upload(file);
-
+  console.log(res);
   isUpload = false;
 }
 
