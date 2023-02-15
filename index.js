@@ -32,6 +32,7 @@ class OssUpload {
     const signature = getSignature(ossConfig, policy);
 
     const data = {
+      name: file.name,
       key: `${useBucketPath}/${file.name}`,
       policy: policy,
       OSSAccessKeyId: AccessKeyId,
@@ -51,12 +52,16 @@ class OssUpload {
     return fetch(host, {
       mode: "no-cors",
       method: "POST",
+      body: formData
     })
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
       })
-      .catch((e) => e);
+      .catch((e) => {
+        console.error(e);
+        return e;
+      });
   }
 }
 

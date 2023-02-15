@@ -29,10 +29,10 @@ function downloadImg() {
 }
 
 async function upload() {
-  const imgBlob = await downloadImg();
+  const imgBlob = await downloadImg(12);
   const fileName = `${randomString()}.jpeg`;
 
-  const file = new File([Blob], fileName, { type: imgBlob.type });
+  const file = new File([imgBlob], fileName, { type: imgBlob.type });
   console.log(file);
 
   const res = await OssUpload.upload(file);
