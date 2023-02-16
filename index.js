@@ -38,8 +38,7 @@ class OssUpload {
    */
   async upload(file, resourceType = "") {
     if (!File.prototype.isPrototypeOf(file)) {
-      console.error("请传入 File 类型的文件");
-      return;
+      throw new Error("请传入 File 类型的文件");
     }
 
     const { AccessKeyId, useBucketPath, projectPath, CDNUrlPath } = ossConfig;
@@ -83,7 +82,7 @@ class OssUpload {
           } else {
             url = originUrl;
           }
-        } else if (resourceType === "origin") {
+        } else if (resourceType === "oss") {
           url = originUrl;
         } else if (resourceType === "cdn") {
           url = cdnUrl;
